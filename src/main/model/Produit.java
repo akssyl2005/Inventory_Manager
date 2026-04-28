@@ -17,7 +17,6 @@ public class Produit {
         this.categorie = categorie;
     }
 
-    // Getters & Setters
     public int getId()           { return id; }
     public String getNom()       { return nom; }
     public double getPrix()      { return prix; }
@@ -30,22 +29,17 @@ public class Produit {
     public void setQuantite(int q)       { this.quantite = q; }
     public void setCategorie(String cat) { this.categorie = cat; }
 
-   
-
-    // Sérialisation — forcer le point comme séparateur décimal
     public String toJson() {
-        return String.format(
-            Locale.US,  // ← forcer le point décimal
+        return String.format(Locale.US,
             "{\"id\":%d,\"nom\":\"%s\",\"prix\":%.2f,\"quantite\":%d,\"categorie\":\"%s\"}",
             id, nom, prix, quantite, categorie
         );
     }
 
-    // Désérialisation — parser avec Locale.US aussi
     public static Produit fromJson(String json) {
         try {
             json = json.trim().replaceAll("[{}]", "");
-            String[] fields = json.split(",(?=\")"); // ← split uniquement avant les guillemets ou chiffres
+            String[] fields = json.split(",(?=\")");
             int id = 0;
             String nom = "", categorie = "";
             double prix = 0;
@@ -73,7 +67,8 @@ public class Produit {
 
     @Override
     public String toString() {
-        return String.format("Produit{id=%d, nom='%s', prix=%.2f DA, quantite=%d, categorie='%s'}",
-                id, nom, prix, quantite, categorie);
+        return String.format(Locale.US,
+            "Produit{id=%d, nom='%s', prix=%.2f DA, quantite=%d, categorie='%s'}",
+            id, nom, prix, quantite, categorie);
     }
 }
