@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "MainApp",
+            "request": "launch",
+            "mainClass": "main.UI.MainApp",
+            "projectName": "Inventory_Manager_3d39884a"
+        },
+        {
+            "type": "java",
+            "name": "Server",
+            "request": "launch",
+            "mainClass": "main.server.Server"
+        },
+        {
+            "type": "java",
+            "name": "JavaFX UI",
+            "request": "launch",
+            "mainClass": "main.ui.MainApp",
+            "vmArgs": "--module-path \"C:\\javafx-sdk-17.0.19\\lib\" --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}
